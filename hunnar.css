@@ -1,0 +1,34 @@
+form.border-dark {
+    border-bottom: 2px solid #000000;
+}
+
+.form-control:hover {
+    box-shadow: none;
+}
+
+/* navbar hidden when scroll up */
+#hunnar-nav {
+    position: fixed;
+
+    /* Make it stick/fixed */
+    top: 0;
+
+    /* Stay on top */
+    width: 100%;
+
+    /* Full width */
+    transition: top 0.3s;
+
+    /* Transition effect when sliding down (and up) */
+}
+
+/* Style the navbar links */
+#hunnar-nav a {
+    float: left;
+    display: block;
+}
+
+.navbar {
+    padding: 25px;
+    margin: 0px;
+}
