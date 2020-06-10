@@ -1,0 +1,119 @@
+/* search bar css */
+form.border-dark {
+    border-bottom: 2px solid #000000;
+}
+
+.form-control:hover {
+    box-shadow: none;
+}
+
+/* navbar hidden when scroll up */
+#hunnar-nav {
+    position: fixed;
+
+    /* Make it stick/fixed */
+    top: 0;
+
+    /* Stay on top */
+    width: calc(100% - 24px);
+
+    /* Full width */
+    transition: top 0.3s;
+
+    /* Transition effect when sliding down (and up) */
+}
+
+/* Style the navbar links */
+#hunnar-nav a {
+    float: left;
+    display: block;
+}
+
+.navbar {
+    padding: 25px;
+    margin: 0px;
+}
+
+/* styling individual project titles */
+li.inline-flex {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 12px 12px [first-start] 700px [first-end] 700px;
+    grid-template-areas: '. .' '. .' '. .' 'first image' '. .';
+    grid-gap: 25px;
+}
+
+li.storyhead:not(:last-child) {
+    margin-right: 2px;
+}
+
+@media (max-width: 991px) {
+    h1.project-title {
+        text-height: 28px;
+    }
+
+    ol li.storyhead {
+        text-height: 12px;
+    }
+
+    .main-container {
+        display: grid;
+        grid-template-columns: [full-start] 24px [middle-start main-start middle-end] 1fr [main-end middle-end] 24px [full-end];
+        grid-gap: 0px;
+        padding: 0;
+        grid-auto-rows: 250px;
+        grid-template-rows: [nav-start] 90px [nav-end] auto [first-start] calc(100vh - 200px) [first-end text-start] auto [text-end];
+        grid-template-areas: '. . .' '. . .' '. first-image .' '. first-text .';
+    }
+}
+
+@media (min-width:992px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: [full-start] 24px [main-start] 1fr [middle-start] 24px [middle-end] 1fr [main-end] 24px [full-end];
+        grid-template-rows: [nav-start] 90px [nav-end] 100px [first-start text-start] calc(100vh - 150px - 96px) [first-end text-end] calc(100vh - 74px);
+        grid-template-areas: '. A . B .' '. C . D .' '. first-image . first-text .' '. E . 5 .';
+        grid-gap: 0px;
+        padding: 0;
+    }
+}
+
+li.storyhead {
+    width: calc(25vw - 24px);
+    display: flex;
+
+    /* allows align-items to work below */
+    justify-content: center;
+
+    /* Horizontally centers single-line elements */
+    text-align: bottom;
+
+    /* Horizontally centers text within line-wrapped elements */
+    align-items: bottom;
+}
+
+.active-storyhead {
+    border-top: 4px solid #000000;
+}
+
+.not-active-storyhead {
+    border-top: 4px solid #999999;
+    color: #999999;
+}
+
+ol li.storyhead:hover {
+    border-top: 4px solid #000000;
+    color: #000000;
+}
+
+ol.storyhead-ol {
+    width: 75vw;
+    margin-left: 12.5vw;
+}
+
+
+
+
+
+
