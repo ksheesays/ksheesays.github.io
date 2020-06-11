@@ -15,7 +15,7 @@
         <link href="hunnar.copy.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="border-bottom-0 border-left-0 border-right-0 border-top-0 container-fluid font-weight-lighter inline-flex main-container">
+        <div class="container-fluid font-weight-lighter inline-flex main-container">
             <nav class="navbar navbar-expand-lg navbar-light" id="hunnar-nav"> 
                 <a class="font-weight-bold navbar-brand text-warning" href="#">Yellow Submarine</a> 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler17" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"> 
@@ -54,19 +54,34 @@
                     <a class="dropdown-item" href="#">Something else here</a> 
                 </div>                 
             </div>
-            <div class="title-text" style="grid-area: 2 / main / 3 / main; padding-bottom: 24px;">
-                <h1 class="Project-title align-self-start font-weight-lighter text-center" style="font-size: 36px; ;grid-area:3 / full / nav / full;">Alma Mater&nbsp;</h1>
-                <ol style="font-size: 1.2rem;" class="align-self-end d-inline-flex list-inline storyhead-ol text-center">
-                    <li class="active-storyhead d-inline-flex storyhead">About </li>
-                    <li class="d-inline-flex storyhead not-active-storyhead">Materials &amp; Technologies</li>
-                    <li class="not-active-storyhead d-inline-flex storyhead">Design Process</li>
-                </ol>
+            <div class="title-text" style=" padding-bottom: 24px; padding-top: 124px;">
+                <h1 class="Project-title align-self-start font-weight-lighter text-center" style="font-size: 36px;">Alma Mater&nbsp;</h1>
+                <div style="font-size: 1.2rem;" class="align-self-end d-inline-flex list-inline storyhead text-center">
+                    <a href="#page-1" class="d-inline-flex scrollitem selected">About</a> 
+                    <a href="#page-2" class="d-inline-flex d-inline-flex scrollitem">Materials &amp; Technologies</a> 
+                    <a href="#page-3" class="d-inline-flex d-inline-flex scrollitem">Design Process</a> 
+                </div>
             </div>
-            <div style="grid-area:3 / 2 / 4 / 3;" class="align-self-end text-justify" "desc-text">
-</div>
-            <img src="http://pinegrow.com/placeholders/img11.jpg" style="object-fit: cover; ;grid-area:3 / 2 / 4 / 3;" height="100%" width="100%">
-            <div class="align-self-end desc-text text-justify" style="grid-area: text-start/middle-end/text-end/main-end;">
-                <p>Alma Mater is a school in Jodhpur that pursues a mission wherein the children will develop moral, physical, emotional character with empathy for the world around. The pedagogy is based in making children learn by becoming aware at all times of their experience; rooting learning in an appreciation of how society and the world functions. The partnership with Hunnarshala was to develop a campus that represents their values and helps create creative opportunities for learning and teaching. The partnership agreed that the campus will represent the ideals of sensitivity to the environment; an appreciation of the crafts, working with ones hands; and an appreciation of history.</p>
+            <div class="wrapper">
+                <div id="page-1" class="page">
+                    <div class="d-lg-flex page-inner">
+                        <img src="http://pinegrow.com/placeholders/img11.jpg" class="single-col" style="object-fit: cover; height=100%; width=100%;">
+                        <div class="align-self-end desc-text text-justify single-col">
+                            <p>Alma Mater is a school in Jodhpur that pursues a mission wherein the children will develop moral, physical, emotional character with empathy for the world around. The pedagogy is based in making children learn by becoming aware at all times of their experience; rooting learning in an appreciation of how society and the world functions. The partnership with Hunnarshala was to develop a campus that represents their values and helps create creative opportunities for learning and teaching. The partnership agreed that the campus will represent the ideals of sensitivity to the environment; an appreciation of the crafts, working with ones hands; and an appreciation of history.</p>
+                        </div>
+                        <div class="align-self-end desc-text text-justify double-col-centred">
+                            <p>Alma Mater is a school in Jodhpur that pursues a mission wherein the children will develop moral, physical, emotional character with empathy for the world around. The pedagogy is based in making children learn by becoming aware at all times of their experience; rooting learning in an appreciation of how society and the world functions. The partnership with Hunnarshala was to develop a campus that represents their values and helps create creative opportunities for learning and teaching. The partnership agreed that the campus will represent the ideals of sensitivity to the environment; an appreciation of the crafts, working with ones hands; and an appreciation of history.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="page-2" class="page">
+                    <div class="page-inner">
+                        <img src="http://pinegrow.com/placeholders/img12.jpg" style="object-fit: cover; height=" 00%" width="100%">
+                        <div class="align-self-end desc-text text-justify">
+                            <p>Alma Mater is a school in Jodhpur that pursues a mission wherein the children will develop moral, physical, emotional character with empathy for the world around. The pedagogy is based in making children learn by becoming aware at all times of their experience; rooting learning in an appreciation of how society and the world functions. The partnership with Hunnarshala was to develop a campus that represents their values and helps create creative opportunities for learning and teaching. The partnership agreed that the campus will represent the ideals of sensitivity to the environment; an appreciation of the crafts, working with ones hands; and an appreciation of history.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Bootstrap core JavaScript
@@ -86,5 +101,25 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }</script>
+        <script>$(document).ready(function() {
+  var slideNum = $('.page').length,
+    wrapperWidth = 100 * slideNum,
+    slideWidth = 100 / slideNum;
+  $('.wrapper').width(wrapperWidth + '%');
+  $('.page').width(slideWidth + '%');
+
+  $('a.scrollitem').click(function() {
+    $('a.scrollitem').removeClass('selected');
+    $(this).addClass('selected');
+
+    var slideNumber = $($(this).attr('href')).index('.page'),
+      margin = slideNumber * -100 + '%';
+
+    $('.wrapper').animate({
+      marginLeft: margin
+    }, 1000);
+    return false;
+  });
+});</script>
     </body>
 </html>

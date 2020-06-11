@@ -15,7 +15,7 @@ form.border-dark {
     top: 0;
 
     /* Stay on top */
-    width: calc(100% - 24px);
+    width: calc(100vw - 24px);
 
     /* Full width */
     transition: top 0.3s;
@@ -34,16 +34,6 @@ form.border-dark {
     margin: 0px;
 }
 
-/* styling individual project titles */
-li.inline-flex {
-    padding: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px 12px 12px [first-start] 700px [first-end] 700px;
-    grid-template-areas: '. .' '. .' '. .' 'first image' '. .';
-    grid-gap: 25px;
-}
-
 li.storyhead:not(:last-child) {
     margin-right: 2px;
 }
@@ -56,30 +46,9 @@ li.storyhead:not(:last-child) {
     ol li.storyhead {
         text-height: 12px;
     }
-
-    .main-container {
-        display: grid;
-        grid-template-columns: [full-start] 24px [middle-start main-start middle-end] 1fr [main-end middle-end] 24px [full-end];
-        grid-gap: 0px;
-        padding: 0;
-        grid-auto-rows: 250px;
-        grid-template-rows: [nav-start] 90px [nav-end] auto [first-start] calc(100vh - 200px) [first-end text-start] auto [text-end];
-        grid-template-areas: '. . .' '. . .' '. first-image .' '. first-text .';
-    }
 }
 
-@media (min-width:992px) {
-    .main-container {
-        display: grid;
-        grid-template-columns: [full-start] 24px [main-start] 1fr [middle-start] 24px [middle-end] 1fr [main-end] 24px [full-end];
-        grid-template-rows: [nav-start] 90px [nav-end] 100px [first-start text-start] calc(100vh - 150px - 96px) [first-end text-end] calc(100vh - 74px);
-        grid-template-areas: '. A . B .' '. C . D .' '. first-image . first-text .' '. E . 5 .';
-        grid-gap: 0px;
-        padding: 0;
-    }
-}
-
-li.storyhead {
+.storyhead a.scrollitem {
     width: calc(25vw - 24px);
     display: flex;
 
@@ -93,27 +62,53 @@ li.storyhead {
     align-items: bottom;
 }
 
-.active-storyhead {
-    border-top: 4px solid #000000;
-}
-
-.not-active-storyhead {
-    border-top: 4px solid #999999;
-    color: #999999;
-}
-
-ol li.storyhead:hover {
-    border-top: 4px solid #000000;
-    color: #000000;
-}
-
-ol.storyhead-ol {
+div.storyhead {
     width: 75vw;
     margin-left: 12.5vw;
 }
 
+/* sliding sections */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
 
+.page {
+    float: left;
+    min-height: 100%;
+}
 
+.page-inner {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0px;
+}
 
+.storyhead a.scrollitem {
+    border-top: 4px solid #999999;
+    color: #999999;
+    text-decoration: none;
+}
 
+.storyhead a.selected,
+.storyhead a:hover {
+    border-top: 4px solid #000000;
+    color: #000000;
+}
 
+.main-container {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+.single-col {
+    width: 50%;
+}
+
+.align-self-end.desc-text.text-justify.single-col {
+    padding-left: 24px;
+}
