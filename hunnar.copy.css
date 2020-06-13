@@ -70,7 +70,7 @@ li.storyhead:not(:last-child) {
 
 div.storyhead {
     width: 75vw; 
-    margin-left: calc(12.5vw - 16px);
+    margin-left: calc(12.5vw + 8px);
 }
 
 /* sliding sections */
